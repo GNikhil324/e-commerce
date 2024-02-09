@@ -7,9 +7,11 @@ export default function ProductListing() {
 	const [productData, setProductData] = useState([]);
 	const fetchData = async () => {
 		try {
-			const res = await fetch('https://fakestoreapi.com/products');
+			const res = await fetch('https://dummyjson.com/products');
 			const data = await res.json();
-			setProductData(data);
+			if(data?.products?.length > 0){
+				setProductData(data.products);
+			}
 		} catch (e) { console.log("error", e) }
 	}
 
@@ -26,12 +28,12 @@ export default function ProductListing() {
 								<div className={style.product_card}>
 									<div className={style.badge}>{item?.category}</div>
 									<div className={style.product_tumb}>
-										<img src={item?.image} alt="" />
+										<img src={item?.images[0]} alt="" />
 									</div>
 									<div className={style.product_details}>
 										<span className={style.product_catagory}>{item?.category}</span>
-										<h4><a href="">{item?.title}</a></h4>
-										<p>{item?.description}</p>
+										<h4 className='max-line-1'><a href="">{item?.title}</a></h4>
+										<p className='max-line-2'>{item?.description}</p>
 										<div className={style.product_bottom_details}>
 											<div className={style.product_price}>₹ {item?.price}</div>
 											<div className={style.product_links}>
