@@ -21,7 +21,7 @@ export default function HomeSlider() {
         clickable: true,
       }}
       navigation={true}
-      modules={[Autoplay, Pagination, Navigation]}
+      modules={[Pagination, Navigation]}
       className="mySwiper"
     >
       <SwiperSlide>

@@ -6,6 +6,11 @@
     background: #fafafa;
 }
 
+.product_card:hover {
+    z-index: 1;
+    transform: scale(1.04);
+}
+
 .badge {
     position: absolute;
     left: 0;
